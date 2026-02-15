@@ -73,10 +73,10 @@ const Navbar = () => {
 
         {/* Right Side - Auth Buttons */}
         <div className="nav-auth">
-          <Link to="/" className="btn-login">
+          <Link to="/signin" className="btn-login">
             Log In
           </Link>
-          <Link to="/" className="btn-signup">
+          <Link to="/signup" className="btn-signup">
             Sign Up
           </Link>
         </div>
@@ -123,14 +123,14 @@ const Navbar = () => {
         </Link>
         <div className="mobile-auth">
           <Link
-            to="/"
+            to="/signin"
             className="btn-login"
             onClick={() => setMobileMenuOpen(false)}
           >
             Log In
           </Link>
           <Link
-            to="/"
+            to="/signup"
             className="btn-signup"
             onClick={() => setMobileMenuOpen(false)}
           >
