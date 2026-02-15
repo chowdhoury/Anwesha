@@ -6,7 +6,7 @@ import {
   IoCheckmarkCircle,
   IoShieldCheckmark,
   IoStarSharp,
-  IoStar,
+  IoStar, 
   IoGift,
 } from "react-icons/io5";
 import {

@@ -56,7 +56,7 @@
 }
 
 /* Search Bar */
-.hero-search {
+.hero-search { 
   display: flex;
   align-items: center;
   background: #fff;
