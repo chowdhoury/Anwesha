@@ -43,11 +43,29 @@
   color: rgba(255, 255, 255, 0.7);
   text-decoration: none;
   font-size: 14px;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+  display: inline-block;
+}
+
+.footer-list a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: var(--gradient-accent);
+  transition: width 0.3s ease;
 }
 
 .footer-list a:hover {
-  color: #14a800;
+  color: var(--color-accent);
+  padding-left: 4px;
+}
+
+.footer-list a:hover::after {
+  width: 100%;
 }
 
 /* Social Links */
@@ -67,12 +85,37 @@
   color: #fff;
   text-decoration: none;
   font-size: 16px;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.social-icon::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: var(--gradient-accent);
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.3s ease;
+}
+
+.social-icon svg {
+  position: relative;
+  z-index: 1;
 }
 
 .social-icon:hover {
-  background: #14a800;
-  border-color: #14a800;
+  border-color: var(--color-primary);
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(20, 168, 0, 0.3);
+}
+
+.social-icon:hover::before {
+  transform: scale(1);
 }
 
 /* App Badges */
@@ -88,16 +131,33 @@
   gap: 8px;
   padding: 8px 14px;
   border: 1px solid rgba(255, 255, 255, 0.3);
-  border-radius: 8px;
+  border-radius: var(--radius-sm);
   text-decoration: none;
   color: #fff;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   width: fit-content;
+  position: relative;
+  overflow: hidden;
+}
+
+.app-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(20, 168, 0, 0.15);
+  transition: left 0.3s ease;
 }
 
 .app-badge:hover {
-  border-color: #14a800;
-  background: rgba(20, 168, 0, 0.1);
+  border-color: var(--color-primary);
+  transform: translateX(4px);
+}
+
+.app-badge:hover::before {
+  left: 0;
 }
 
 .app-badge-icon {
@@ -155,11 +215,27 @@
   color: rgba(255, 255, 255, 0.6);
   text-decoration: none;
   font-size: 13px;
-  transition: color 0.2s ease;
+  transition: all 0.2s ease;
+  position: relative;
+}
+
+.footer-bottom-right a::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background: var(--color-accent);
+  transition: width 0.3s ease;
 }
 
 .footer-bottom-right a:hover {
-  color: #14a800;
+  color: var(--color-accent);
+}
+
+.footer-bottom-right a:hover::after {
+  width: 100%;
 }
 
 /* Responsive */

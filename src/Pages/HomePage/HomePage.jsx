@@ -6,7 +6,7 @@ import {
   IoCheckmarkCircle,
   IoShieldCheckmark,
   IoStarSharp,
-  IoStar, 
+  IoStar,
   IoGift,
 } from "react-icons/io5";
 import {
@@ -175,6 +175,29 @@ const HomePage = () => {
     return () => clearInterval(id);
   }, []);
 
+  // Scroll reveal animation
+  useEffect(() => {
+    const observerOptions = {
+      threshold: 0.1,
+      rootMargin: '0px 0px -50px 0px'
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('revealed');
+        }
+      });
+    }, observerOptions);
+
+    const elements = document.querySelectorAll('.scroll-reveal');
+    elements.forEach((el) => observer.observe(el));
+
+    return () => {
+      elements.forEach((el) => observer.unobserve(el));
+    };
+  }, []);
+
   const { highlight, text } = heroHeadlines[headlineIndex];
 
   return (
@@ -263,7 +286,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ TRUSTED BY ══════ */}
-      <section className="trusted">
+      <section className="trusted scroll-reveal">
         <div className="section-container">
           <p className="trusted-label">
             Trusted by leading brands and startups
@@ -279,7 +302,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ CATEGORIES ══════ */}
-      <section className="categories">
+      <section className="categories scroll-reveal">
         <div className="section-container">
           <h2 className="section-title">Browse talent by category</h2>
           <p className="section-subtitle">
@@ -307,7 +330,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ WHY CHOOSE US ══════ */}
-      <section className="why-section">
+      <section className="why-section scroll-reveal">
         <div className="section-container">
           <div className="why-header">
             <h2 className="section-title">Why people love Anwesha</h2>
@@ -342,7 +365,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ HOW IT WORKS ══════ */}
-      <section className="how-section">
+      <section className="how-section scroll-reveal">
         <div className="section-container">
           <h2 className="section-title center">How it works</h2>
           <p className="section-subtitle center">
@@ -362,7 +385,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ POPULAR SKILLS ══════ */}
-      <section className="skills-section">
+      <section className="skills-section scroll-reveal">
         <div className="section-container">
           <h2 className="section-title">Browse top skills</h2>
           <div className="skills-grid">
@@ -377,7 +400,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ TESTIMONIALS ══════ */}
-      <section className="testimonials">
+      <section className="testimonials scroll-reveal">
         <div className="section-container">
           <h2 className="section-title center">What our community says</h2>
 
@@ -410,7 +433,7 @@ const HomePage = () => {
       </section>
 
       {/* ══════ CTA BANNER ══════ */}
-      <section className="cta-banner">
+      <section className="cta-banner scroll-reveal">
         <div className="section-container cta-inner">
           <div className="cta-text">
             <h2>Share your skills. Earn rewards. Get help when you need it.</h2>
